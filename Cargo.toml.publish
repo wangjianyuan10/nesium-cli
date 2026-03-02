@@ -1,0 +1,24 @@
+[package]
+name = "nesium-cli"
+version = "0.1.0"
+edition = "2021"
+description = "NES emulator for terminal with iTerm2 image support based on mikai233/nesium"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/wangjianyuan10/nesium"
+keywords = ["nes", "emulator", "terminal", "cli", "retro"]
+categories = ["emulators", "command-line-utilities"]
+
+[[bin]]
+name = "nesium-cli"
+path = "src/main.rs"
+
+[dependencies]
+# 使用 GitHub 仓库作为依赖，package 指定仓库中的包名
+nesium = { git = "https://github.com/mikai233/nesium", package = "nesium-core", branch = "main" }
+
+anyhow = "1.0"
+clap = { version = "4.5", features = ["derive"] }
+crossterm = "0.28"
+ratatui = "0.29"
+miniz_oxide = "0.8"
+base64 = "0.22"
